@@ -1,13 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",       // xuất static HTML vào thư mục out/
-  trailingSlash: true,    // /about → /about/index.html (GitHub Pages cần)
+  output: "export",
+  trailingSlash: true,
   images: {
-    unoptimized: true,    // Next.js Image Optimization không hoạt động với static export
+    unoptimized: true,
   },
-  // Nếu deploy lên project page (username.github.io/ten-repo), bỏ comment dòng dưới:
-  basePath: "/hiep-portfolio",
+  // Đọc từ .env.production khi build → "/hiep-portfolio"
+  // Rỗng khi npm run dev (không đọc .env.production)
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? "",
 };
 
 export default nextConfig;

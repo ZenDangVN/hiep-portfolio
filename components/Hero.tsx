@@ -10,6 +10,8 @@ const socials = [
   { icon: Mail,         href: "mailto:hieptruong@rikkeisoft.com",  label: "Email" },
 ];
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
@@ -233,7 +235,7 @@ export default function Hero() {
                 style={{ borderColor: "rgba(146,64,14,0.5)", transformOrigin: "bottom left" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/photo1.jpg" alt="Hiệp Trương" className="w-full h-full object-cover object-top" />
+                <img src={`${BASE}/images/photo1.jpg`} alt="Hiệp Trương" className="w-full h-full object-cover object-top" />
               </motion.div>
 
               {/* Photo 2 */}
@@ -246,7 +248,7 @@ export default function Hero() {
                 style={{ borderColor: "rgba(146,64,14,0.5)", transformOrigin: "bottom right" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/photo2.jpg" alt="Hiệp Trương tại Tokyo" className="w-full h-full object-cover object-top" />
+                <img src={`${BASE}/images/photo2.jpg`} alt="Hiệp Trương tại Tokyo" className="w-full h-full object-cover object-top" />
               </motion.div>
 
               {/* Award */}
@@ -259,7 +261,7 @@ export default function Hero() {
                 style={{ borderColor: "rgba(245,158,11,0.4)" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/award.jpg" alt="Best Hunter — Rikkei" className="w-full h-full object-cover object-center" />
+                <img src={`${BASE}/images/award.jpg`} alt="Best Hunter — Rikkei" className="w-full h-full object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-amber-950/40 to-transparent pointer-events-none" />
               </motion.div>
 
