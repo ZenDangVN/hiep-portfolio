@@ -2,13 +2,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Send, CheckCircle } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "./SocialIcons";
+import { LinkedinIcon, TiktokIcon, FacebookIcon } from "./SocialIcons";
 
 const socials = [
-  { icon: GithubIcon,   label: "GitHub",   value: "github.com/hieptruong",    href: "https://github.com/hieptruong" },
-  { icon: LinkedinIcon, label: "LinkedIn", value: "linkedin.com/in/hieptruong", href: "https://linkedin.com/in/hieptruong" },
-  { icon: Mail,         label: "Email",    value: "hieptruong@rikkeisoft.com", href: "mailto:hieptruong@rikkeisoft.com" },
-  { icon: MapPin,       label: "Location", value: "Ho Chi Minh City, Vietnam", href: "#" },
+  { icon: LinkedinIcon, label: "LinkedIn", value: "linkedin.com/in/hiep-truong-a8789b326", href: "https://www.linkedin.com/in/hiep-truong-a8789b326/" },
+  { icon: TiktokIcon,   label: "TikTok",   value: "@hieptt14",                             href: "https://www.tiktok.com/@hieptt14" },
+  { icon: FacebookIcon, label: "Facebook", value: "hiep.truong.12935",                     href: "https://www.facebook.com/hiep.truong.12935" },
+  { icon: Mail,         label: "Email",    value: "hieptt@rikkeisoft.com",                 href: "mailto:hieptt@rikkeisoft.com" },
+  { icon: MapPin,       label: "Location", value: "Tokyo, Japan",                          href: "#" },
 ];
 
 export default function Contact() {

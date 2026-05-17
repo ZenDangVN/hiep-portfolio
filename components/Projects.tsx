@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Smartphone, Globe, Brain } from "lucide-react";
-import { GithubIcon } from "./SocialIcons";
+import { LinkedinIcon } from "./SocialIcons";
 import WaveDivider from "./WaveDivider";
 
 type Project = {
@@ -143,7 +143,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-1.5 text-sm text-stone-400 hover:text-stone-200 transition-colors duration-200"
                     >
-                      <GithubIcon className="w-4 h-4" />
+                      <LinkedinIcon className="w-4 h-4" />
                       Code
                     </a>
                     {p.demo && (
@@ -176,7 +176,7 @@ export default function Projects() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-stone-700 text-stone-400 hover:border-amber-500/45 hover:text-amber-300 transition-all duration-300 text-sm"
             >
-              <GithubIcon className="w-4 h-4" />
+              <LinkedinIcon className="w-4 h-4" />
               Xem thêm trên GitHub
             </a>
           </motion.div>

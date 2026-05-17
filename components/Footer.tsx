@@ -1,10 +1,11 @@
 import { Coffee, Mail } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "./SocialIcons";
+import { LinkedinIcon, TiktokIcon, FacebookIcon } from "./SocialIcons";
 
 const socials = [
-  { icon: GithubIcon,   href: "https://github.com/hieptruong",    label: "GitHub" },
-  { icon: LinkedinIcon, href: "https://linkedin.com/in/hieptruong", label: "LinkedIn" },
-  { icon: Mail,         href: "mailto:hieptruong@rikkeisoft.com",  label: "Email" },
+  { icon: LinkedinIcon, href: "https://www.linkedin.com/in/hiep-truong-a8789b326/", label: "LinkedIn" },
+  { icon: TiktokIcon,   href: "https://www.tiktok.com/@hieptt14",                  label: "TikTok" },
+  { icon: FacebookIcon, href: "https://www.facebook.com/hiep.truong.12935",         label: "Facebook" },
+  { icon: Mail,         href: "mailto:hieptt@rikkeisoft.com",                       label: "Email" },
 ];
 
 const links = [
