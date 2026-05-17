@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,    // Next.js Image Optimization không hoạt động với static export
   },
   // Nếu deploy lên project page (username.github.io/ten-repo), bỏ comment dòng dưới:
-  // basePath: "/ten-repo",
+  basePath: "/hiep-portfolio",
 };
 
 export default nextConfig;
