@@ -15,13 +15,36 @@ export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    setLoading(false);
-    setSent(true);
+    setError(false);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          subject: `[Portfolio] Tin nhắn từ ${form.name}`,
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSent(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -134,16 +157,24 @@ export default function Contact() {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-amber-600 hover:bg-amber-500 disabled:opacity-50 disabled:cursor-not-allowed text-stone-900 font-semibold transition-all duration-300 glow-amber self-start"
-                >
-                  {loading
-                    ? <span className="w-4 h-4 border-2 border-stone-900/30 border-t-stone-900 rounded-full animate-spin" />
-                    : <Send className="w-4 h-4" />}
-                  {loading ? "Đang gửi..." : "Gửi tin nhắn ☕"}
-                </button>
+                <div className="flex flex-col gap-3 self-start">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-amber-600 hover:bg-amber-500 disabled:opacity-50 disabled:cursor-not-allowed text-stone-900 font-semibold transition-all duration-300 glow-amber"
+                  >
+                    {loading
+                      ? <span className="w-4 h-4 border-2 border-stone-900/30 border-t-stone-900 rounded-full animate-spin" />
+                      : <Send className="w-4 h-4" />}
+                    {loading ? "Đang gửi..." : "Gửi tin nhắn ☕"}
+                  </button>
+
+                  {error && (
+                    <p className="text-sm text-red-400/80 font-mono">
+                      ✕ Gửi thất bại — thử lại hoặc nhắn mình qua LinkedIn nhé!
+                    </p>
+                  )}
+                </div>
               </>
             )}
           </motion.form>
